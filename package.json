@@ -1,0 +1,36 @@
+{
+  "name": "openidea-claude-bridge",
+  "version": "0.1.0",
+  "description": "Sidecar que faz o openIDEA aparecer como IDE para o Claude Code (/ide)",
+  "type": "module",
+  "bin": {
+    "openidea-claude-bridge": "src/cli.js"
+  },
+  "scripts": {
+    "start": "node src/cli.js",
+    "test": "node --test --test-timeout=20000 test/"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "src",
+    "scripts",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "os": [
+    "linux"
+  ],
+  "license": "Apache-2.0",
+  "author": "canuttolucas",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/canuttolucas/openidea-claude-bridge.git"
+  }
+}

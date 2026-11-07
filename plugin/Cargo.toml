@@ -1,0 +1,27 @@
+[package]
+name = "openidea-plugin-aa-claude-bridge"
+version = "0.1.0"
+edition = "2024"
+publish = false
+license = "Apache-2.0"
+
+# A plugin builds on its own (target wasm32-wasip2), outside any IDE workspace.
+[workspace]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+# Fixado por commit (== tag v0.1.38, API 1.2): tags podem ser movidas.
+openidea-plugin = { git = "https://github.com/l0ng-ai/openidea", rev = "9c5372c7ab44207f0d3ac3d01fcb62af224091b7" }
+serde_json = "1"
+hmac = "0.12"
+sha2 = "0.10"
+getrandom = "0.3"
+
+[profile.release]
+opt-level = "s"
+lto = true
+strip = true
+codegen-units = 1
+panic = "abort"

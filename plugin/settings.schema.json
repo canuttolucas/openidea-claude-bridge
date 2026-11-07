@@ -1,0 +1,17 @@
+{
+  "properties": {
+    "port": {
+      "type": "integer",
+      "title": "Porta do sidecar",
+      "description": "A mesma de CLAUDE_CODE_SSE_PORT e de `openidea-claude-bridge --port`.",
+      "default": 38911,
+      "minimum": 1024,
+      "maximum": 65535
+    },
+    "serverKey": {
+      "type": "string",
+      "title": "Chave do servidor",
+      "description": "Linha `serverKey` de `node src/cli.js --print-token`. O plugin só envia o token ao processo que provar que a conhece, para ninguém na porta roubá-lo."
+    }
+  }
+}

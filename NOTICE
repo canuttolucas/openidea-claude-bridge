@@ -1,0 +1,8 @@
+openidea-claude-bridge
+Copyright 2026 canuttolucas
+
+Licensed under the Apache License, Version 2.0.
+
+O plugin compilado (plugin/dist/plugin.wasm, não versionado) incorpora o SDK
+`openidea-plugin` do projeto openIDEA (https://github.com/l0ng-ai/openidea),
+também Apache-2.0, além das crates listadas em plugin/Cargo.lock.

@@ -1,0 +1,36 @@
+id = "aa.claude-bridge"
+name = "Claude Code Bridge"
+version = "0.1.0"
+description = "Mostra o openIDEA ao Claude Code como IDE: envia a pasta aberta, o arquivo ativo e a seleção (@-menção) ao sidecar openidea-claude-bridge."
+authors = ["canuttolucas"]
+license = "Apache-2.0"
+categories = ["ai", "tools"]
+engines.openidea = "^1.0"
+wasm = "dist/plugin.wasm"
+# Mantém a lista de editores atualizada sem o usuário rodar nada.
+activation = ["on-event:editor-focused", "on-event:file-opened"]
+
+[capabilities]
+# project.read: pastas abertas; editor.read: seleção; events: arquivo ativo;
+# net:127.0.0.1: só o sidecar local; secrets: token de controle (o plugin nunca o lê).
+required = ["project.read", "editor.read", "events", "net:127.0.0.1", "secrets"]
+
+[[contributes.secrets]]
+name = "bridge-token"
+label = "Token de controle do sidecar"
+description = "Conteúdo de ~/.config/openidea-claude-bridge/control-token."
+
+[[contributes.commands]]
+id = "send-selection"
+title = "Claude Code Bridge: Send Selection to Claude"
+category = "Claude Code Bridge"
+when = "editorFocus"
+
+[[contributes.commands]]
+id = "sync"
+title = "Claude Code Bridge: Sync and Check Connection"
+category = "Claude Code Bridge"
+
+[contributes.settings]
+title = "Claude Code Bridge"
+schema = "settings.schema.json"
